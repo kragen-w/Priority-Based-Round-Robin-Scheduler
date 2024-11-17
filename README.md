@@ -36,15 +36,15 @@ Follow these steps to set up and use the Job Scheduler Simulator.
 
 2. Run the program:
    ```bash
-   python scheduler.py <time_slice> <block_duration> <job_file>
+   python scheduler.py <job_file> <time_slice> <block_duration>
    ```
+   - Replace `<job_file>` with the path to your job file (e.g., `jobs.txt`).
    - Replace `<time_slice>` with the maximum time a job can run before switching (e.g., `3`).
    - Replace `<block_duration>` with the time a job is blocked (e.g., `2`).
-   - Replace `<job_file>` with the path to your job file (e.g., `jobs.txt`).
 
 Example:
 ```bash
-python scheduler.py 3 2 jobs.txt
+python scheduler.py jobs.txt 3 2
 ```
 
 ---
@@ -54,26 +54,27 @@ python scheduler.py 3 2 jobs.txt
 The **job file** contains a list of jobs, each defined by specific parameters. Use the following format for each line in the file:
 
 ```
-<arrival_time> <burst_duration> <blocking_time> <priority_level>
+<name> <priority> <arrival_time> <total_time> <block_interval>
 ```
 
+- **`name`**: The name of the job (string, e.g., `A`).
+- **`priority`**: The priority level of the job (integer, optional depending on the algorithm).
 - **`arrival_time`**: The time the job arrives in the queue (integer, e.g., `0`).
-- **`burst_duration`**: The total CPU time required for the job (integer, e.g., `8`).
-- **`blocking_time`**: The time when the job will block (integer, e.g., `4` or `-1` if no blocking).
-- **`priority_level`**: The priority level of the job (integer, optional depending on the algorithm).
+- **`total_time`**: The total CPU time required for the job (integer, e.g., `8`).
+- **`block_interval`**: The time when the job will block (integer, e.g., `4` or `8 (same as total_time)` if no blocking).
 
 ### Example Job File (`jobs.txt`)
 
 ```txt
-0 10 5 1
-2 6 -1 2
-4 8 3 1
-6 4 -1 3
+A 1 0 100 25
+B 5 1 50 20
+C 2 2 90 45
 ```
 
 Explanation:
-1. Job 1 arrives at time `0`, requires `10` units of CPU time, blocks at time `5`, and has priority `1`.
-2. Job 2 arrives at time `2`, requires `6` units of CPU time, never blocks (`-1`), and has priority `2`.
+1. Job `A` has priority `1`, arrives at time `0`, requires `100` units of CPU time, blocks after running for `25`.
+2. Job `B` has priority `5`, arrives at time `1`, requires `50` units of CPU time, blocks after running for `20`.
+3. Job `C` has priority `2`, arrives at time `2`, requires `90` units of CPU time, blocks after running for `45`.
 
 ---
 
@@ -107,14 +108,8 @@ We welcome contributions! If you'd like to improve this project:
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
-
 ## Questions or Feedback?
 
-Feel free to open an issue or contact us at `your-email@example.com`. We’d love to hear your thoughts and ideas!
+Feel free to open an issue or contact me at `kragen.wild@du.edu`.
 
 ---
