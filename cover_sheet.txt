@@ -1,0 +1,315 @@
+I worked on this project by myself, and to my knowledge, it is completely functional.
+
+FIRST TEST:
+A 1 0 100 25
+B 5 1 50 20
+C 2 2 90 45
+scheduler.py test.txt 10 20
+
+timeSlice: 10     blockDuration: 20
+0       A       10      P
+10      B       10      P
+20      B       10      B
+30      C       10      P
+40      C       10      P
+50      B       10      P
+60      B       10      B
+70      C       10      P
+80      C       10      P
+90      B       10      T
+100     C       5       B
+105     A       10      P
+115     A       5       B
+120     idle    5       I
+125     C       10      P
+135     C       10      P
+145     C       10      P
+155     C       10      P
+165     C       5       T
+170     A       10      P
+180     A       10      P
+190     A       5       B
+195     idle    20      I
+215     A       10      P
+225     A       10      P
+235     A       5       B
+240     idle    20      I
+260     A       10      P
+270     A       10      P
+280     A       5       T
+
+B 99
+C 168
+A 285
+Average turnaround time: 184.0
+
+
+SECOND TEST:
+A 1 0 100 25
+B 5 1 50 20
+C 2 2 90 45
+scheduler.py test.txt 10 50
+
+timeSlice: 10     blockDuration: 50
+0       A       10      P
+10      B       10      P
+20      B       10      B
+30      C       10      P
+40      C       10      P
+50      C       10      P
+60      C       10      P
+70      C       5       B
+75      A       10      P
+85      B       10      P
+95      B       10      B
+105     A       5       B
+110     idle    15      I
+125     C       10      P
+135     C       10      P
+145     C       10      P
+155     B       10      T
+165     C       10      P
+175     C       5       T
+180     A       10      P
+190     A       10      P
+200     A       5       B
+205     idle    50      I
+255     A       10      P
+265     A       10      P
+275     A       5       B
+280     idle    50      I
+330     A       10      P
+340     A       10      P
+350     A       5       T
+
+B 164
+C 178
+A 355
+Average turnaround time: 232.33333333333334
+
+
+THIRD TEST:
+A 1 0 1000 1000
+B 1 0 100 10
+C 1 0 100 20
+scheduler.py question2joblist.txt 10 10
+
+timeSlice: 10     blockDuration: 10
+0       A       10      P
+10      B       10      B
+20      C       10      P
+30      A       10      P
+40      B       10      B
+50      C       10      B
+60      A       10      P
+70      B       10      B
+80      C       10      P
+90      A       10      P
+100     B       10      B
+110     C       10      B
+120     A       10      P
+130     B       10      B
+140     C       10      P
+150     A       10      P
+160     B       10      B
+170     C       10      B
+180     A       10      P
+190     B       10      B
+200     C       10      P
+210     A       10      P
+220     B       10      B
+230     C       10      B
+240     A       10      P
+250     B       10      B
+260     C       10      P
+270     A       10      P
+280     B       10      T
+290     C       10      T
+300     A       10      P
+310     A       10      P
+320     A       10      P
+330     A       10      P
+340     A       10      P
+350     A       10      P
+360     A       10      P
+370     A       10      P
+380     A       10      P
+390     A       10      P
+400     A       10      P
+410     A       10      P
+420     A       10      P
+430     A       10      P
+440     A       10      P
+450     A       10      P
+460     A       10      P
+470     A       10      P
+480     A       10      P
+490     A       10      P
+500     A       10      P
+510     A       10      P
+520     A       10      P
+530     A       10      P
+540     A       10      P
+550     A       10      P
+560     A       10      P
+570     A       10      P
+580     A       10      P
+590     A       10      P
+600     A       10      P
+610     A       10      P
+620     A       10      P
+630     A       10      P
+640     A       10      P
+650     A       10      P
+660     A       10      P
+670     A       10      P
+680     A       10      P
+690     A       10      P
+700     A       10      P
+710     A       10      P
+720     A       10      P
+730     A       10      P
+740     A       10      P
+750     A       10      P
+760     A       10      P
+770     A       10      P
+780     A       10      P
+790     A       10      P
+800     A       10      P
+810     A       10      P
+820     A       10      P
+830     A       10      P
+840     A       10      P
+850     A       10      P
+860     A       10      P
+870     A       10      P
+880     A       10      P
+890     A       10      P
+900     A       10      P
+910     A       10      P
+920     A       10      P
+930     A       10      P
+940     A       10      P
+950     A       10      P
+960     A       10      P
+970     A       10      P
+980     A       10      P
+990     A       10      P
+1000    A       10      P
+1010    A       10      P
+1020    A       10      P
+1030    A       10      P
+1040    A       10      P
+1050    A       10      P
+1060    A       10      P
+1070    A       10      P
+1080    A       10      P
+1090    A       10      P
+1100    A       10      P
+1110    A       10      P
+1120    A       10      P
+1130    A       10      P
+1140    A       10      P
+1150    A       10      P
+1160    A       10      P
+1170    A       10      P
+1180    A       10      P
+1190    A       10      T
+
+B 290
+C 300
+A 1200
+Average turnaround time: 596.6666666666666
+
+
+BONUS TEST: (BASED OF THE LAB EXTRA CREDIT (FOR THE FANS))
+Q 1 0 500 50
+R 1 130 300 20
+S 1 440 400 50
+
+timeSlice: 20     blockDuration: 30
+0       Q       20      P
+20      Q       20      P
+40      Q       10      B
+50      idle    30      I
+80      Q       20      P
+100     Q       20      P
+120     Q       10      B
+130     R       20      B
+150     idle    10      I
+160     Q       20      P
+180     R       20      B
+200     Q       20      P
+220     Q       10      B
+230     R       20      B
+250     idle    10      I
+260     Q       20      P
+280     R       20      B
+300     Q       20      P
+320     Q       10      B
+330     R       20      B
+350     idle    10      I
+360     Q       20      P
+380     R       20      B
+400     Q       20      P
+420     Q       10      B
+430     R       20      B
+450     S       20      P
+470     Q       20      P
+490     R       20      B
+510     S       20      P
+530     Q       20      P
+550     R       20      B
+570     S       10      B
+580     Q       10      B
+590     idle    10      I
+600     R       20      B
+620     S       20      P
+640     Q       20      P
+660     R       20      B
+680     S       20      P
+700     Q       20      P
+720     R       20      B
+740     S       10      B
+750     Q       10      B
+760     idle    10      I
+770     R       20      B
+790     S       20      P
+810     Q       20      P
+830     R       20      B
+850     S       20      P
+870     Q       20      P
+890     R       20      T
+910     S       10      B
+920     Q       10      B
+930     idle    20      I
+950     S       20      P
+970     Q       20      P
+990     S       20      P
+1010    Q       20      P
+1030    S       10      B
+1040    Q       10      B
+1050    idle    20      I
+1070    S       20      P
+1090    Q       20      P
+1110    S       20      P
+1130    Q       20      P
+1150    S       10      B
+1160    Q       10      T
+1170    idle    20      I
+1190    S       20      P
+1210    S       20      P
+1230    S       10      B
+1240    idle    30      I
+1270    S       20      P
+1290    S       20      P
+1310    S       10      B
+1320    idle    30      I
+1350    S       20      P
+1370    S       20      P
+1390    S       10      T
+
+R 780
+Q 1170
+S 960
+Average turnaround time: 970.0

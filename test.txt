@@ -1,0 +1,5 @@
+# Sample processes
+# name priority arrival_time total_time block_interval
+A 1 0 100 25
+B 5 1 50 20
+C 2 2 90 45
